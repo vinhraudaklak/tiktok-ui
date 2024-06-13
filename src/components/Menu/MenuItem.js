@@ -1,15 +1,13 @@
 import classNames from 'classnames/bind';
 import styles from './PopperMenu.module.scss';
-import Button from '../../Button';
+import Button from '~/components/Button';
 
 const cx = classNames.bind(styles);
 
 function MenuItem({ data, onClick }) {
-    const classes = cx('menu-item',
-        {
-            separate: data.separate
-        }
-    )
+    const classes = cx('menu-item', {
+        separate: data.separate,
+    });
     return (
         <Button className={classes} onClick={onClick} leftIcon={data.icon} to={data.to} target="_blank">
             {data.title}
@@ -18,4 +16,3 @@ function MenuItem({ data, onClick }) {
 }
 
 export default MenuItem;
- 

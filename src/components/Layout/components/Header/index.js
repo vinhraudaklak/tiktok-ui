@@ -20,10 +20,10 @@ import Tippy from '@tippyjs/react';
 import HeadlessTippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css';
 
-import Menu from '~/components/Layout/components/Popper/Menu';
-import Button from '~/components/Layout/components/Button';
-import { Wrapper as PopperWrapper } from '../Popper';
-import AccountItem from '../AccountItem';
+import Menu from '~/components/Menu';
+import Button from '~/components/Button';
+import { Wrapper as PopperWrapper } from '~/components/Popper';
+import AccountItem from '~/components/AccountItem';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
 
@@ -172,7 +172,7 @@ function Header() {
                         </>
                     )}
 
-                    <Menu  items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
+                    <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
                             <img className={cx('user-avatar')} src={images.avatar2} alt="ng.vinH"></img>
                         ) : (
