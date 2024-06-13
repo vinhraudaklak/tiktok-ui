@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faCircleQuestion,
     faCircleXmark,
-    faCloudUpload,
     faCoins,
     faEarthAsia,
     faEllipsisVertical,
@@ -20,12 +19,14 @@ import Tippy from '@tippyjs/react';
 import HeadlessTippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css';
 
-import Menu from '~/components/Menu';
+import Menu from '~/components/MenuItem';
 import Button from '~/components/Button';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
+import { MessengerIcon, UploadIcon, NotificationIcon } from '~/components/Icons';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(styles);
 
@@ -159,7 +160,17 @@ function Header() {
                         <>
                             <Tippy delay={200} content="Upload video" placement="bottom">
                                 <button className={cx('actions-btn')}>
-                                    <FontAwesomeIcon icon={faCloudUpload} />
+                                    <UploadIcon className="uploadICon" />
+                                </button>
+                            </Tippy>
+                            <Tippy delay={200} content="Messenger" placement="bottom">
+                                <button className={cx('actions-btn')}>
+                                    <MessengerIcon className="messengerIcon" />
+                                </button>
+                            </Tippy>
+                            <Tippy delay={200} content="Notifications" placement="bottom">
+                                <button className={cx('actions-btn')}>
+                                    <NotificationIcon className="notificationIcon" />
                                 </button>
                             </Tippy>
                         </>
@@ -174,7 +185,12 @@ function Header() {
 
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
-                            <img className={cx('user-avatar')} src={images.avatar2} alt="ng.vinH"></img>
+                            <Image
+                                className={cx('user-avatar')}
+                                src={images.avatar2}
+                                alt="ng.vinH"
+                                fallback="https://fullstack.edu.vn/static/media/f8-icon.18cd71cfcfa33566a22b.png"
+                            ></Image>
                         ) : (
                             <button className={cx('iconVertical')}>
                                 <FontAwesomeIcon icon={faEllipsisVertical} />

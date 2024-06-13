@@ -1,8 +1,8 @@
 
 const images = {
     logo: require('./logo.svg').default,
-    avatar: require('./TestAvatar.jpeg'),
     avatar2: require('./avatar2.jpeg'),
+    imgError: require('./imgError.png'),
 }
 
 export default images; 
